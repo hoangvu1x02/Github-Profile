@@ -2,6 +2,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
 const axios = require("axios");
+const generateHTML = require("./generateHTML");
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
@@ -16,24 +17,10 @@ function promptUser() {
         },
         {
             type: "input",
-            name: "work",
-            message: "Where do you work?"
-        },
-        {
-            type: "input",
-            name: "location",
-            message: "Where are you from?"
-        },
-        {
-            type: "input",
             name: "github",
             message: "Enter your GitHub Username"
         },
-        {
-            type: "input",
-            name: "blog",
-            message: "Enter your Blog Username"
-        },
+
         {
             type: "list",
             message: "What is your favourite color?",
@@ -50,20 +37,28 @@ function promptUser() {
 
 promptUser()
     .then(function (answers) {
-        const queryUrl = `https://api.github.com/users/${answers.github}/repos?per_page=100`;
+        const queryUrl = `https://api.github.com/users/${answers.github}`;
         axios.get(queryUrl).then(function (res) {
-            const repoNames = res.data.map(function (repo) {
-                return repo.name;
-            });
-            console.log(repoNames.length);
-        });
+
+            const userInfo = res.data;
+
+            const workPlace = userInfo.company;
+            const location = userInfo.location;
+            const githubLink = userInfo.url;
+            const repos = userInfo.public_repos;
+            const followers = userInfo.followers;
+            const following = userInfo.following;
+            const blog = userInfo.blog;
+
+
+            const html = generateHTML.generateHTML(userInfo);
 
 
 
-        const queryFollowerUrl = `https://api.github.com/users/${answers.github}/followers?per_page=100`;
-        axios.get(queryFollowerUrl).then(function (res) {
-            const followers = res.data;
-            console.log(followers.length);
+            console.log(workPlace, location, githubLink, repos, followers, following, blog);
+            return writeFileAsync("index.html", html);
+        }).then(function () {
+            console.log("Successfully wrote to index.html");
         });
 
     }).catch(function (err) {

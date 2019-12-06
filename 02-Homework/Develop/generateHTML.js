@@ -52,7 +52,7 @@ function generateHTML(data) {
          height: 100%;
          }
          .wrapper {
-         background-color: ${colors[data.color].wrapperBackground};
+         background-color: #DE9967;
          padding-top: 100px;
          }
          body {
@@ -95,8 +95,8 @@ function generateHTML(data) {
          display: flex;
          justify-content: center;
          flex-wrap: wrap;
-         background-color: ${colors[data.color].headerBackground};
-         color: ${colors[data.color].headerColor};
+         background-color: #870603;
+         color: white;
          padding: 10px;
          width: 95%;
          border-radius: 6px;
@@ -107,7 +107,7 @@ function generateHTML(data) {
          border-radius: 50%;
          object-fit: cover;
          margin-top: -75px;
-         border: 6px solid ${colors[data.color].photoBorderColor};
+         border: 6px solid white;
          box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
          }
          .photo-header h1, .photo-header h2 {
@@ -150,8 +150,8 @@ function generateHTML(data) {
          .card {
            padding: 20px;
            border-radius: 6px;
-           background-color: ${colors[data.color].headerBackground};
-           color: ${colors[data.color].headerColor};
+           background-color: #DE9967;
+           color: #870603;
            margin: 20px;
          }
          
@@ -182,20 +182,20 @@ function generateHTML(data) {
                       Hi!
                   </h1>
                   <h2>
-                      My name is
+                      My name is ${data.name}
                   </h2>
                   <div class="links-nav">
                       <div class="nav-link fa-2x">
                           <i class="fas fa-location-arrow "></i>
-                         <a href="">Melbourne</a> 
+                         <a href="">${data.location}</a> 
                       </div>
                       <div class="nav-link fa-2x">
                           <i class="fab fa-github"></i>
-                        <a href="">hoangvu1x02</a>  
+                        <a href="">${data.url}</a>  
                       </div>
                       <div class="nav-link fa-2x">
                           <i class="fas fa-blog"></i>
-                          <a href=""> Alex</a>
+                          <a href=""> ${data.blog}</a>
                       </div>
                   </div>
               </div>
@@ -206,11 +206,13 @@ function generateHTML(data) {
                   <div class="col">
                       <div class="card">
                           <h2>Pulic Repositories</h2>
+                          <h3> ${data.public_repos} </h3>
                       </div>
                   </div>
                   <div class="col">
                       <div class="card">
                           <h2>Followers</h2>
+                          <h3> ${data.followers} </h3>
                       </div>
                   </div>
               </div>
@@ -223,6 +225,7 @@ function generateHTML(data) {
                   <div class="col">
                       <div class="card">
                           <h2>Following</h2>
+                          <h3> ${data.following} </h3>
                       </div>
                   </div>
               </div>
