@@ -34,7 +34,7 @@ function generateHTML(data) {
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
       <link href="https://fonts.googleapis.com/css?family=BioRhyme|Cabin&display=swap" rel="stylesheet">
-      <title>Document</title>
+      <title>GitHub Profile</title>
       <style>
           @page {
             margin: 0;
@@ -71,6 +71,7 @@ function generateHTML(data) {
          }
          h1 {
          font-size: 3em;
+         text-align: center;
          }
          h2 {
          font-size: 2.5em;
@@ -172,18 +173,62 @@ function generateHTML(data) {
          }
       </style>
       </head>
-<body>
-  <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Hi! My name is ${answers.name}</h1>
-    <p class="lead">I am from ${answers.location}.</p>
-    <h3>Example heading <span class="badge badge-secondary">Contact Me</span></h3>
-    <ul class="list-group">
-      <li class="list-group-item">My GitHub username is ${answers.github}</li>
-      <li class="list-group-item">LinkedIn: ${answers.linkedin}</li>
-    </ul>
-  </div>
-</div>
-</body>
-</html>`;
+      <body>
+      <div class="wrapper">
+          <div class="main">
+              <div class="photo-header">
+                  <img src="" alt="">
+                  <h1>
+                      Hi!
+                  </h1>
+                  <h2>
+                      My name is
+                  </h2>
+                  <div class="links-nav">
+                      <div class="nav-link fa-2x">
+                          <i class="fas fa-location-arrow "></i>
+                         <a href="">Melbourne</a> 
+                      </div>
+                      <div class="nav-link fa-2x">
+                          <i class="fab fa-github"></i>
+                        <a href="">hoangvu1x02</a>  
+                      </div>
+                      <div class="nav-link fa-2x">
+                          <i class="fas fa-blog"></i>
+                          <a href=""> Alex</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="container">
+              <h1>I build things and teach people to code </h1>
+              <div class="row">
+                  <div class="col">
+                      <div class="card">
+                          <h2>Pulic Repositories</h2>
+                      </div>
+                  </div>
+                  <div class="col">
+                      <div class="card">
+                          <h2>Followers</h2>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col">
+                      <div class="card">
+                          <h2>GitHub Stars</h2>
+                      </div>
+                  </div>
+                  <div class="col">
+                      <div class="card">
+                          <h2>Following</h2>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </body>
+  
+  </html>`;
         }

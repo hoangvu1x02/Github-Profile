@@ -49,23 +49,27 @@ function promptUser() {
 }
 
 promptUser()
-.then(function(answers) {
-
-    console.log(answers);
-    const queryUrl = `https://api.github.com/users/${answers.github}/repos?per_page=100`;
-    axios.get(queryUrl).then(function(res) {
-
-    console.log(res);
-        const repoNames = res.data.map(function(repo) {
-          return repo.name;
-          
+    .then(function (answers) {
+        const queryUrl = `https://api.github.com/users/${answers.github}/repos?per_page=100`;
+        axios.get(queryUrl).then(function (res) {
+            const repoNames = res.data.map(function (repo) {
+                return repo.name;
+            });
+            console.log(repoNames.length);
         });
-        console.log(repoNames);
+
+
+
+        const queryFollowerUrl = `https://api.github.com/users/${answers.github}/followers?per_page=100`;
+        axios.get(queryFollowerUrl).then(function (res) {
+            const followers = res.data;
+            console.log(followers.length);
+        });
+
+    }).catch(function (err) {
+        console.log(err);
     });
-    
-  }).catch(function(err) {
-    console.log(err);
-  });
+
 
 // const questions = [
 
