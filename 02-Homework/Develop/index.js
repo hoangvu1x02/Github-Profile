@@ -55,7 +55,6 @@ promptUser()
     const queryUrl = `https://api.github.com/users/${answers.github}/repos?per_page=100`;
     axios.get(queryUrl).then(function(res) {
 
-        
     console.log(res);
         const repoNames = res.data.map(function(repo) {
           return repo.name;
