@@ -1,32 +1,4 @@
-const colors = {
-  green: {
-    wrapperBackground: "#E6E1C3",
-    headerBackground: "#C1C72C",
-    headerColor: "black",
-    photoBorderColor: "black"
-  },
-  blue: {
-    wrapperBackground: "#5F64D3",
-    headerBackground: "#26175A",
-    headerColor: "white",
-    photoBorderColor: "#73448C"
-  },
-  pink: {
-    wrapperBackground: "#879CDF",
-    headerBackground: "#FF8374",
-    headerColor: "white",
-    photoBorderColor: "#FEE24C"
-  },
-  red: {
-    wrapperBackground: "#DE9967",
-    headerBackground: "#870603",
-    headerColor: "white",
-    photoBorderColor: "white"
-  }
-};
-
-function generateHTML(data, colorChoice, starCounted) {
-  return `<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
    <head>
       <meta charset="UTF-8" />
@@ -52,7 +24,7 @@ function generateHTML(data, colorChoice, starCounted) {
          height: 100%;
          }
          .wrapper {
-         background-color: ${colors[colorChoice].wrapperBackground};
+         background-color: #E6E1C3;
          padding-top: 100px;
          }
          body {
@@ -95,8 +67,8 @@ function generateHTML(data, colorChoice, starCounted) {
          display: flex;
          justify-content: center;
          flex-wrap: wrap;
-         background-color:  ${colors[colorChoice].headerBackground};
-         color: ${colors[colorChoice].headerColor};
+         background-color:  #C1C72C;
+         color: black;
          padding: 10px;
          width: 95%;
          border-radius: 6px;
@@ -107,7 +79,7 @@ function generateHTML(data, colorChoice, starCounted) {
          border-radius: 50%;
          object-fit: cover;
          margin-top: -75px;
-         border: 6px solid ${colors[colorChoice].photoBorderColor};
+         border: 6px solid #black;
          box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
          }
          .photo-header h1, .photo-header h2 {
@@ -150,8 +122,8 @@ function generateHTML(data, colorChoice, starCounted) {
          .card {
            padding: 20px;
            border-radius: 6px;
-           background-color:  ${colors[colorChoice].headerBackground};
-           color:  ${colors[colorChoice].headerColor};
+           background-color:  #C1C72C;
+           color:  black;
            margin: 20px;
          }
          
@@ -177,28 +149,28 @@ function generateHTML(data, colorChoice, starCounted) {
       <div class="wrapper">
           <div class="main">
               <div class="photo-header">
-                  <img src="${data.avatar_url}" alt="Profile Picture">
+                  <img src="https://avatars1.githubusercontent.com/u/353371?v=4" alt="Profile Picture">
                   <h1>
                       Hi!
                   </h1>
                   <h2>
-                      My name is ${data.name}
+                      My name is Miek Gieben
                   </h2>
                   <h3>
-                      Currently work at ${data.company}
+                      Currently work at null
                   </h3>
                   <div class="links-nav">
                       <div class="nav-link fa-2x">
                           <i class="fas fa-location-arrow "></i>
-                         <a href="./map.html">${data.location}</a> 
+                         <a href="./map.html">London, UK</a> 
                       </div>
                       <div class="nav-link fa-2x">
                           <i class="fab fa-github"></i>
-                        <a href="${data.html_url}">${data.login}</a>  
+                        <a href="https://github.com/miekg">miekg</a>  
                       </div>
                       <div class="nav-link fa-2x">
                           <i class="fas fa-blog"></i>
-                          <a href="${data.blog}">Blog</a>
+                          <a href="www.miek.nl">Blog</a>
                       </div>
                   </div>
               </div>
@@ -209,13 +181,13 @@ function generateHTML(data, colorChoice, starCounted) {
                   <div class="col">
                       <div class="card">
                           <h2>Pulic Repositories</h2>
-                          <h3> ${data.public_repos} </h3>
+                          <h3> 54 </h3>
                       </div>
                   </div>
                   <div class="col">
                       <div class="card">
                           <h2>Followers</h2>
-                          <h3> ${data.followers} </h3>
+                          <h3> 915 </h3>
                       </div>
                   </div>
               </div>
@@ -223,13 +195,13 @@ function generateHTML(data, colorChoice, starCounted) {
                   <div class="col">
                       <div class="card">
                           <h2>GitHub Stars</h2>
-                          <h3> ${starCounted} </h3>
+                          <h3> 30 </h3>
                       </div>
                   </div>
                   <div class="col">
                       <div class="card">
                           <h2>Following</h2>
-                          <h3> ${data.following} </h3>
+                          <h3> 5 </h3>
                       </div>
                   </div>
               </div>
@@ -237,6 +209,4 @@ function generateHTML(data, colorChoice, starCounted) {
       </div>
   </body>
   
-  </html>`;
-        }
-      module.exports = generateHTML;
+  </html>
